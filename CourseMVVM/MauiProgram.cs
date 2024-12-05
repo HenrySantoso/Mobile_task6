@@ -38,6 +38,8 @@ namespace CourseMVVM
             builder.Services.AddSingleton<MainPageModel>();
             builder.Services.AddSingleton<ProjectListPageModel>();
             builder.Services.AddSingleton<ManageMetaPageModel>();
+            builder.Services.AddSingleton<CourseCategoryPageModel>();
+            builder.Services.AddHttpClient<ICourseCategory, CourseCategoryRepository>();
 
             builder.Services.AddTransientWithShellRoute<ProjectDetailPage, ProjectDetailPageModel>("project");
             builder.Services.AddTransientWithShellRoute<TaskDetailPage, TaskDetailPageModel>("task");

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseMVVM.Pages.CourseCategoryPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="CourseCategoryPage">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadCourseCategoriesCommand}"/>
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding CourseCategories}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Text="{Binding CategoryID}" FontSize="Body"/>
+                        <Label Grid.Row="1" Text="{Binding Name}" FontSize="Body"/>
+                        <Label Grid.Row="2" Text="{Binding Description}" FontSize="Body"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
